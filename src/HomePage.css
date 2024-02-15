@@ -1,0 +1,15 @@
+header {
+  background-image: url('./images/photo-1507133750040-4a8f57021571.jpg');
+  background-position: top;
+  text-align: center;
+  color: white;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h1 {
+  position: center;
+}
