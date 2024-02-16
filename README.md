@@ -1,30 +1,22 @@
-# React + TypeScript + Vite
+WEB SITE OF MULINO RESTAURANT
+vite web site where you to see meal menu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+interactions: navBar(scrolling)
 
-Currently, two official plugins are available:
+URLs:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+APP: https://web-tooling-and-modern-setup-wpap.vercel.app/
 
-## Expanding the ESLint configuration
+STORYBOOK: https://web-tooling-and-modern-setup-9g98-9cjvm7av6.vercel.app/?path=/story/example-navbar--default
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+installation:
+npm install
 
-- Configure the top-level `parserOptions` property like this:
+how to run:
+npm run dev
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+how to run jest tests:
+npm tun test
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+running storybook:
+npm run storybook
