@@ -1,56 +1,51 @@
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import App from '../App'
+import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Navbar from '../NavBar.tsx'
+import ContactPage from '../ContactPage'
+import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
 
-test('renders home page content', () => {
-  render(
-    <Router>
-      <App />
-    </Router>,
-  )
+describe('Navbar component', () => {
+  it('renders without crashing', () => {
+    render(<Navbar />)
+    expect(screen.getByRole('navigation')).toBeInTheDocument()
+  })
 
-  const homePageContent = screen.getByText(/Home Page Content/i)
-  expect(homePageContent).toBeInTheDocument()
-})
+  it('contains the correct links identified by test IDs', () => {
+    render(<Navbar />)
+    const testIds = [
+      'link-about',
+      'link-menu',
+      'link-testimonial',
+      'link-bookTable',
+      'link-contact',
+    ]
 
-test('renders about page content after clicking about button', () => {
-  render(
-    <Router>
-      <App />
-    </Router>,
-  )
+    testIds.forEach((testId) => {
+      expect(screen.getByTestId(testId)).toBeInTheDocument()
+    })
+  })
 
-  const aboutButton = screen.getByRole('button', { name: /About/i })
-  aboutButton.click()
+  it('allows typing into the email input', async () => {
+    render(<ContactPage />)
+    const emailInput = screen.getByPlaceholderText('Enter email')
+    await userEvent.type(emailInput, 'test@example.com')
+    expect(emailInput).toHaveValue('test@example.com')
+  })
 
-  const aboutPageContent = screen.getByText(/About Page Content/i)
-  expect(aboutPageContent).toBeInTheDocument()
-})
+  it('logs the expected message on form submission', async () => {
+    const logSpy = jest.spyOn(console, 'log')
+    render(<ContactPage />)
+    const emailInput = screen.getByPlaceholderText('Enter email')
+    const submitButton = screen.getByText('Enter email') // This should ideally say something like "Subscribe" for clarity
 
-test('renders services page content after clicking services button', () => {
-  render(
-    <Router>
-      <App />
-    </Router>,
-  )
+    await userEvent.type(emailInput, 'test@example.com')
+    fireEvent.click(submitButton)
 
-  const servicesButton = screen.getByRole('button', { name: /Services/i })
-  servicesButton.click()
-
-  const servicesPageContent = screen.getByText(/Services Page Content/i)
-  expect(servicesPageContent).toBeInTheDocument()
-})
-
-test('renders contact page content after clicking contact button', () => {
-  render(
-    <Router>
-      <App />
-    </Router>,
-  )
-
-  const contactButton = screen.getByRole('button', { name: /Contact/i })
-  contactButton.click()
-
-  const contactPageContent = screen.getByText(/Contact Page Content/i)
-  expect(contactPageContent).toBeInTheDocument()
+    expect(logSpy).toHaveBeenCalledWith(
+      'Subscribed with email:',
+      'test@example.com',
+    )
+    logSpy.mockRestore()
+  })
 })
