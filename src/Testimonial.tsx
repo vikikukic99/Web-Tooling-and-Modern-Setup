@@ -19,7 +19,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
         alt={name}
         style={{ width: '100px', height: '100px', borderRadius: '50%' }}
       />
-      <p style={{ fontStyle: 'italic' }}>"{message}"</p>
+      <p style={{ fontStyle: 'italic' }}>{message}</p>
       <p>- {name}</p>
     </div>
   )

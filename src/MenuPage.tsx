@@ -85,7 +85,8 @@ const MenuPage: React.FC = () => {
       <div style={{ padding: '2rem' }}>
         <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Menu</h2>
         <blockquote style={{ textAlign: 'center', fontStyle: 'italic' }}>
-          “Cooking is like love, either give in or don't get into it.”
+          &apos;Cooking is like love, either give in or don&apos;t get into
+          it.&apos;
         </blockquote>
         <div
           style={{

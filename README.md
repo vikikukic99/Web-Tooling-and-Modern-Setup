@@ -7,7 +7,7 @@ URLs:
 
 APP: https://web-tooling-and-modern-setup-wpap.vercel.app/
 
-STORYBOOK: https://web-tooling-and-modern-setup-9g98-9cjvm7av6.vercel.app/?path=/story/example-navbar--default
+STORYBOOK: https://web-tooling-and-modern-setup-9g98.vercel.app/?path=/story/example-navbar--default
 
 installation:
 npm install
